@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - BiblioGest</title>
+    <!-- Vinculación de estilos externos -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="dashboard-container">
+
+        <!-- 1. BARRA LATERAL (Sidebar) -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <span class="icon-logo">📚</span>
+                <h2>BiblioGest</h2>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="#" class="menu-item active"><span>🏠</span> Inicio / Dashboard</a>
+                <a href="#" class="menu-item"><span>📖</span> Catálogo de Libros</a>
+                <a href="#" class="menu-item"><span>🔄</span> Préstamos Activos</a>
+                <a href="#" class="menu-item"><span>👥</span> Gestión de Usuarios</a>
+                <a href="#" class="menu-item"><span>⚙️</span> Configuración</a>
+            </nav>
+        </aside>
+
+        <!-- 2. ÁREA DE CONTENIDO PRINCIPAL -->
+        <main class="main-content">
+            
+            <!-- Encabezado superior -->
+            <header class="main-header">
+                <div class="header-title">
+                    <h1>Panel de Control de Inventario</h1>
+                    <p>Bienvenido al sistema de administración bibliotecaria.</p>
+                </div>
+                <div class="header-user">
+                    <span class="user-badge">👤 Administrador</span>
+                </div>
+            </header>
+
+            <!-- Tarjetas de métricas en tiempo real -->
+            <section class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-info">
+                        <h3>Total Libros</h3>
+                        <p class="metric-number" id="txt-total">1,240</p>
+                    </div>
+                    <span class="metric-icon bg-green">📕</span>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-info">
+                        <h3>En Préstamo</h3>
+                        <p class="metric-number text-orange" id="txt-prestados">84</p>
+                    </div>
+                    <span class="metric-icon bg-orange">🔄</span>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-info">
+                        <h3>Disponibles</h3>
+                        <p class="metric-number text-emerald" id="txt-disponibles">1,156</p>
+                    </div>
+                    <span class="metric-icon bg-emerald">✅</span>
+                </div>
+            </section>
+
+            <!-- Sección transaccional (Tabla de últimos movimientos) -->
+            <section class="table-section">
+                <div class="table-header">
+                    <h2>Monitoreo de Préstamos Recientes</h2>
+                    <p>Haga clic en "Procesar Devolución" para simular el reingreso del libro al inventario.</p>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Libro / Catálogo</th>
+                                <th>Usuario / Lector</th>
+                                <th>Fecha de Salida</th>
+                                <th>Estado</th>
+                                <th>Acción Operativa</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla-prestamos">
+                            <tr id="fila-1">
+                                <td><strong>Cien años de soledad</strong><br><small>ISBN: 978-0307</small></td>
+                                <td>Juan Pérez</td>
+                                <td>18/09/2026</td>
+                                <td><span class="status-badge alert">Pendiente</span></td>
+                                <td><button class="btn-action" onclick="procesarDevolucion('fila-1')">Procesar Devolución</button></td>
+                            </tr>
+                            <tr id="fila-2">
+                                <td><strong>Don Quijote de la Mancha</strong><br><small>ISBN: 978-0062</small></td>
+                                <td>María Gómez</td>
+                                <td>15/09/2026</td>
+                                <td><span class="status-badge alert">Pendiente</span></td>
+                                <td><button class="btn-action" onclick="procesarDevolucion('fila-2')">Procesar Devolución</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Vinculación del script lógico -->
+    <script src="script.js"></script>
+</body>
+</html>
